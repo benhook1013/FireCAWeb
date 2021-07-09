@@ -4,6 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <!-- Viewport meta tag for proper rendering adn touch zooming on mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -16,12 +17,21 @@
     <title>FireCA - Home</title>
 </head>
 
-<body style="background-image: url('images/Background-Red.jpg')">
-    <div id="title-bar">
-        <h1>FireCA</h1>
+<body class="bg-dark">
+    <div id="title-bar" class="container bg-danger">
+        <header class="d-flex justify-content-center py-3">
+            <h1 class="title text-white px-3 text">FireCA</h1>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link active text-white" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white">About</a></li>
+            </ul>
+    </div>
     </div>
 
-    <div id="navigation-bar">
+    <div class="navigation-bar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: ">
 
         <head>
             <link rel="stylesheet" href="navigation-bar.css">
@@ -33,7 +43,7 @@
 
     </div>
 
-    <div id="body">
+    <div class="p-3">
         <p>Main page.</p>
     </div>
 
