@@ -1,0 +1,13 @@
+body {
+    /* background-color: #b10207; */
+    color: #31465a;
+}
+
+div#title-bar {
+    width: 100%;
+    float: none;
+}
+
+div#title-bar.h1 {
+    width: 50%
+}
