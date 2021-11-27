@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- Viewport meta tag for proper rendering adn touch zooming on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/fireca.css">
+    <link rel="stylesheet" href="css/jquery.json-viewer.css">
+
+    <title>FireCA - Home</title>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script language="JavaScript" type="text/javascript" src="/fireca/js/jquery-3.6.0.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/fireca/js/jquery.json-editor.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/fireca/js/jquery.json-viewer.js"></script>
+</head>
+
+<body class="bg-primary">
+    <div class="container bg-secondary">
+        <div class="row">
+            <header class="container col-12">
+                <div class="row">
+                    <div class="col-4">
+                        <h1 class="title text-white px-3 text">FireCA</h1>
+                    </div>
+                    <div class="col-8 align-self-center">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a href="/fireca/home.html" class="nav-link text-white"
+                                    aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item"><a href="/fireca/bootstrap_examples.html" class="nav-link text-white"
+                                    aria-current="page">Boostrap Examples</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="navigation-bar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+                    <ol class="list-group list-group-numbered">
+                        <p>Certificates</p>
+                        <li class="list-group-item d-flex justify-content-between align-items-start active text-white">
+                            <div class="ms-2 me-auto">
+                                <a class="text-white" href="/fireca/certificate_request.html">Certificate Request</a>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="pb-3" id="csrForm">
+                    <h3>Certificate request form</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="csrSubject">Subject</label>
+                            <input type="text" class="form-control" id="csrSubject" placeholder="HOSTNAME.fireca.net"
+                                required>
+                        </div>
+                    </form>
+                </div>
+                <div class="pb-3" id="csrDisplay">
+                    <h3>Certificate request display</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="csrDisplayTextareaPretty">CSRs</label>
+                            <pre id="csrDisplayTextareaPretty" class="json-editor-blackbord"
+                                contenteditable="true"></pre>
+                        </div>
+                    </form>
+                    <button id="jsonFormatButton" class="btn btn-primary">Format</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getJson() {
+            try {
+                return JSON.parse($('#csrDisplayTextareaPretty').text());
+            } catch (ex) {
+                console.log('Wrong JSON Format: ' + ex);
+            }
+        }
+
+        var editor = new JsonEditor('#csrDisplayTextareaPretty');
+
+        $('#jsonFormatButton').on('click', function () {
+            editor.load(getJson());
+        });
+
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/fireca/csrs",
+                strict: false,
+                success: function (response) {
+                    editor.load(JSON.parse(response));
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

@@ -27,11 +27,11 @@
                     </div>
                     <div class="col-8 align-self-center">
                         <ul class="nav nav-pills">
-                            <li class="nav-item"><a href="/fireca/home.html" class="nav-link active text-white"
+                            <li class="nav-item"><a href="/fireca/home.html" class="nav-link text-white"
                                     aria-current="page">Home</a>
                             </li>
-                            <li class="nav-item"><a href="/fireca/bootstrap_examples.html" class="nav-link text-white"
-                                    aria-current="page">Boostrap Examples</a>
+                            <li class="nav-item"><a href="/fireca/bootstrap_examples.html"
+                                    class="nav-link active text-white" aria-current="page">Boostrap Examples</a>
                             </li>
                         </ul>
                     </div>
@@ -52,7 +52,41 @@
                 </div>
             </div>
             <div class="col-7">
-                <p>Main page.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleBasicTextbox">Basic Textbox</label>
+                        <input type="text" class="form-control" id="exampleBasicTextbox" placeholder="Some text.">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleEmailTextbox">Email Textbox</label>
+                        <input type="email" class="form-control" id="exampleEmailTextbox"
+                            placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdown">Dropdown</label>
+                        <select class="form-control" id="exampleDropdown">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleMultiselectDropdown">Multiselect Dropdown</label>
+                        <select multiple class="form-control" id="exampleMultiselectDropdown">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Textarea</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
